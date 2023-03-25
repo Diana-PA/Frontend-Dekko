@@ -25,7 +25,7 @@ export default function Catalogo() {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Hola xxx
+          Hola xxx a todo el mundo!!!!
         </ListSubheader>
       }
     >
