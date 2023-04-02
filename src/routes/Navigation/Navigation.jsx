@@ -13,6 +13,7 @@ import logo from '../../images/logo.JPG';
 import Carrito from '../../pages/Carrito/Carrito';
 import Login from '../../pages/Login/Login';
 
+
  
 const  Navigation = () => {
  
@@ -29,10 +30,24 @@ const  Navigation = () => {
                       alt="Logo"
                     />
               </Navbar.Brand>
+
+              <NavDropdown title='Catálogo'> 
+                        <NavDropdown.Item as={NavLink} to="/catalogo" href="/Catalogo">Catalogo</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/bebe" href="/SumaBebe">
+                              Bebé
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/perfil">Perfil</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item as={NavLink} to="/migas">Migas</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item as={NavLink} to="/construccion">Construccion</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/prueba">Prueba</NavDropdown.Item>
+              </NavDropdown>
+              
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                  <Nav.Link as={NavLink}  to="/Catalogo">Catalogo</Nav.Link>
+
                   <Form className="d-flex">
                   <Form.Control
                       type="search"

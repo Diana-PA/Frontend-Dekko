@@ -20,6 +20,8 @@ import Prueba from '../../pages/Prueba/Prueba';
 import Recuperar from '../../pages/Recuperar/Recuperar';
 import Registro from '../../pages/Registro/Registro';
 import Separador from '../../pages/Separador/Separador';
+import Jumbotron from '../../pages/Jumbotron/Jumbotron';
+import Bebe from '../../pages/Bebe/Bebe';
 
  
 
@@ -30,6 +32,8 @@ function Rutas() {
         <Route path='/' element={<Layout />}> 
             <Route path='/' element={<Home />} /> 
  
+            <Route path='/jumbotron' element={<Jumbotron />} />  
+            <Route path='/bebe' element={<Bebe />} />  
             <Route path='/catalogo' element={<Catalogo />} />  
             <Route path='/carrito' element={<Carrito />} />  
             <Route path='/checkout' element={<Checkout />} />  
