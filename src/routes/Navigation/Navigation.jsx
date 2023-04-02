@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import logo from '../../images/logo.JPG';
 
 import Carrito from '../../pages/Carrito/Carrito';
-import Login from '../../pages/Login/Login';
+
 
 
  
@@ -43,16 +43,14 @@ const  Navigation = () => {
                         <NavDropdown.Item as={NavLink} to="/construccion">Construccion</NavDropdown.Item>
                         <NavDropdown.Item as={NavLink} to="/prueba">Prueba</NavDropdown.Item>
               </NavDropdown>
-              
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-
                   <Form className="d-flex">
                   <Form.Control
                       type="search"
                       placeholder="Buscar"
-                      className="me-2"
+                      className="me-1"
                       aria-label="Buscar"
                     />
                     <IconButton
@@ -66,9 +64,7 @@ const  Navigation = () => {
                   </Form>                     
 
                   <Nav.Link  >
-                        <React.Fragment>
-                              <Login />
-                        </React.Fragment>      
+                        <NavDropdown.Item as={NavLink} to="/login" href="/Login1">Login</NavDropdown.Item>     
                   </Nav.Link>  
                   <Nav.Link  >
                         <React.Fragment>
@@ -84,7 +80,7 @@ const  Navigation = () => {
                         <NavDropdown.Item as={NavLink} to="/migas">Migas</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item as={NavLink} to="/construccion">Construccion</NavDropdown.Item>
-                        <NavDropdown.Item as={NavLink} to="/prueba">Prueba</NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/prueba">Logout</NavDropdown.Item>
               </NavDropdown>
               </Nav>  
               </Navbar.Collapse>

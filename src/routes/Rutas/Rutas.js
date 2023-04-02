@@ -10,7 +10,7 @@ import Footer from '../../pages/Footer/Footer';
 import Garantias from '../../pages/Garantias/Garantias';
 import Home from '../../pages/Home/Home';
 import Instructivo from '../../pages/Instructivo/Instructivo';
-import Login from '../../pages/Login/Login';
+import Login1 from '../../pages/Login/Login1';
 import Migas from '../../pages/Migas/Migas';
 import Nosotros from '../../pages/Nosotros/Nosotros';
 import Olvido from '../../pages/Olvido/Olvido';
@@ -20,7 +20,6 @@ import Prueba from '../../pages/Prueba/Prueba';
 import Recuperar from '../../pages/Recuperar/Recuperar';
 import Registro from '../../pages/Registro/Registro';
 import Separador from '../../pages/Separador/Separador';
-import Jumbotron from '../../pages/Jumbotron/Jumbotron';
 import Bebe from '../../pages/Bebe/Bebe';
 
  
@@ -32,7 +31,6 @@ function Rutas() {
         <Route path='/' element={<Layout />}> 
             <Route path='/' element={<Home />} /> 
  
-            <Route path='/jumbotron' element={<Jumbotron />} />  
             <Route path='/bebe' element={<Bebe />} />  
             <Route path='/catalogo' element={<Catalogo />} />  
             <Route path='/carrito' element={<Carrito />} />  
@@ -42,7 +40,7 @@ function Rutas() {
             <Route path='/footer' element={<Footer />} /> 
             <Route path='/garantias' element={<Garantias />} /> 
             <Route path='/instructivo' element={<Instructivo />} />  
-            <Route path='/login' element={<Login />} />  
+            <Route path='/login' element={<Login1 />} />  
             <Route path='/migas' element={<Migas />} />  
             <Route path='/nosotros' element={<Nosotros />} />  
             <Route path='/olvido' element={<Olvido />} />  

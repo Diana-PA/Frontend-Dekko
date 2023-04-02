@@ -1,120 +1,123 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import {  ThemeProvider } from '@mui/material/styles';
-import theme from '../../pages/Colores/Colores';
-  
-import AccountCircle from '@mui/icons-material/AccountCircle';  
-import Olvido from '../../pages/Olvido/Olvido';
-import Registro from '../../pages/Registro/Registro';
-import { teal } from '@mui/material/colors';
-export default function Login() {
- 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import { useContext } from 'react';
+import UserContext from '../../Context/user/UserContext';
+
+const theme = createTheme();
+
+export default function SignInSide() {
+
+  const {loginUser} = useContext(UserContext)
+
+const initialValues = {
+  email:"",
+  password:""
+}
+
+const [user, setUser] = useState(initialValues)
+
+const handleChange = (e) => {
+  setUser((prevState) => ({
+    ...prevState,
+    [e.target.name]: e.target.value
+  }))
+}
+
+console.log(user)
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+    loginUser(user)
+    }
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
 
-     <Button onClick={handleClickOpen} sx={{ color: teal[50] }}><AccountCircle sx={{ color: teal[50] }}/>Ingresa a tu cuenta</Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogContent>
-          <ThemeProvider theme={theme}>
-          <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <Box
-              sx={{
-                marginTop: 12,
-                marginBottom: 12,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                <AccountCircle />
-              </Avatar>
-              <Typography component="h1" variant="h5">
-                Ingresa a tu cuenta
-              </Typography>
-              <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Correo electrónico"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Contraseña"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Recordar la contraseña"
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                 Ingresa a tu cuenta
-                </Button>
-                <Grid container>
-                  <Grid item xs>
-                    <Olvido />  
-                  </Grid>
-                  <Grid item>
-                     <Registro />  
-                  </Grid>
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Ingresa a tu cuenta
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                onChange={handleChange}
+                value={user.email}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                onChange={handleChange}
+                value={user.password}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <Button href="#">
+                    {"Don't have an account? Sign Up"}
+                  </Button>
                 </Grid>
-              </Box>
+              </Grid>
             </Box>
-          </Container>
-        </ThemeProvider>
-        </DialogContent>
-     
-        <DialogActions>
-          <Button onClick={handleClose} >Cancelar</Button>
-        </DialogActions>
-        
-      </Dialog>
-    </div>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 }
