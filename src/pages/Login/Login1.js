@@ -16,9 +16,12 @@ const theme = createTheme();
 
 export default function SignInSide() {
 
+  const [signUp,setSignUp] = useState(false)
+
   const {loginUser} = useContext(UserContext)
 
 const initialValues = {
+  name:"",
   email:"",
   password:""
 }
@@ -36,8 +39,19 @@ console.log(user)
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (signUp===true){
+      registerUser()
+    } else {
+      loginUser(user)
+    }
+  
+    setUser(initialValues)
+    
+    };
 
-    loginUser(user)
+    const changeMode = () => {
+      setSignUp(!signUp)
+      setUser(initialValues)
     }
 
   return (
@@ -72,9 +86,24 @@ console.log(user)
 
             </Avatar>
             <Typography component="h1" variant="h5">
-              Ingresa a tu cuenta
+              { signUp ? "Sign up" : "Sign in"}
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              {signUp && (
+            <TextField
+                margin="normal"
+                required
+                id="name"
+                fullWidth
+                autoFocus
+                onChange={handleChange}
+                type="text"
+                placeholder='John Wick'
+                name="name"
+                label="Name"
+                value={user.name}
+              />
+              )}
               <TextField
                 margin="normal"
                 required
@@ -105,12 +134,12 @@ console.log(user)
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                {signUp ? "Sign Up" : "Sign In"}
               </Button>
               <Grid container>
                 <Grid item>
-                  <Button href="#">
-                    {"Don't have an account? Sign Up"}
+                  <Button onClick={changeMode}>
+                    {signUp ? "Already have an account? Sign In" : "Don't have al account? Sign Up"}
                   </Button>
                 </Grid>
               </Grid>
