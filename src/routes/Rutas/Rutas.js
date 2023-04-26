@@ -1,8 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
-import Carrito from '../../pages/Carrito/Carrito';
+import Carrito from '../../Context/Carrito/Carrito';
 import Catalogo from '../../pages/Catalogo/Catalogo';
-import Checkout from '../../pages/Checkout/Checkout';
 import Contacto from '../../pages/Contacto/Contacto';
 import Footer from '../../pages/Footer/Footer';
 import Garantias from '../../pages/Garantias/Garantias';
@@ -18,6 +17,7 @@ import Separador from '../../pages/Separador/Separador';
 import Bebe from '../../pages/Bebe/Bebe';
 import { useContext, useEffect } from 'react';
 import UserContext from '../../Context/user/UserContext';
+import Cart from '../../pages/Carro/Cart';
 
 function Rutas() {
 
@@ -49,7 +49,7 @@ function Rutas() {
             <Route path='/bebe' element={<Bebe />} />  
             <Route path='/catalogo' element={<Catalogo />} />  
             <Route path='/carrito' element={<Carrito />} />  
-            <Route path='/checkout' element={<Checkout />} /> 
+            <Route path='/checkout' element={<Cart />} /> 
             <Route path='/contacto' element={<Contacto />} />           
             <Route path='/footer' element={<Footer />} /> 
             <Route path='/garantias' element={<Garantias />} />  

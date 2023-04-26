@@ -1,30 +1,27 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
-import { useContext } from 'react';
+import {Avatar, Button, CssBaseline, TextField, Paper, Box, Grid, Typography, createTheme, ThemeProvider} from '@mui/material';
+
+import { useContext, useState } from 'react';
 import UserContext from '../../Context/user/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function SignInSide() {
 
+  const navigate = useNavigate();
+
   const [signUp,setSignUp] = useState(false)
 
-  const {loginUser} = useContext(UserContext)
+  const {loginUser, registerUser} = useContext(UserContext)
 
 const initialValues = {
   name:"",
   email:"",
   password:""
 }
+
+console.log(`Este es el estado del singUp: ${initialValues}`)
 
 const [user, setUser] = useState(initialValues)
 
@@ -39,13 +36,15 @@ console.log(user)
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (signUp===true){
-      registerUser()
+    if (signUp){
+      registerUser(user)
     } else {
       loginUser(user)
     }
   
     setUser(initialValues)
+
+    navigate("/")
     
     };
 
@@ -64,7 +63,7 @@ console.log(user)
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=878&q=80)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -98,9 +97,9 @@ console.log(user)
                 autoFocus
                 onChange={handleChange}
                 type="text"
-                placeholder='John Wick'
+                placeholder='Ingresa aquí tu nombre'
                 name="name"
-                label="Name"
+                label="Nombre"
                 value={user.name}
               />
               )}
@@ -109,7 +108,7 @@ console.log(user)
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Correo electrónico"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -121,7 +120,7 @@ console.log(user)
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Contraseña"
                 type="password"
                 id="password"
                 autoComplete="current-password"

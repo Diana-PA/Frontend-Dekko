@@ -1,31 +1,72 @@
 import Carousel from 'react-bootstrap/Carousel';
+import './carrousel.scss';
 
 function Carrusel() {
   return (
-    <Carousel>
-      <Carousel.Item interval={1000}>
+    <Carousel >
+      <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://images.unsplash.com/photo-1551109543-e37833b2e37f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHBhdHJvbmVzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
+          className="d-block w-100 carousel-image"
+          src="https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2022/05/JUN05_I_M01.jpg.webp"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
+        <Carousel.Caption
+          style={{
+            fontWeight: 'bold',
+            backgroundColor: 'black',
+            opacity: 0.5
+          }}
+        >
+          <h4>Diseños pensados para cada uno de tus espacios</h4>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://images.unsplash.com/photo-1595131838595-3154b9f4450b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBhdHJvbmVzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
+          className="d-block w-100 carousel-image"
+          src="https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2022/05/JUN05_I_M05.jpg.webp"
           alt="Second slide"
         />
+        <Carousel.Caption
+          style={{
+            fontWeight: 'bold',
+            backgroundColor: 'black',
+            opacity: 0.5
+          }}
+        >
+          <h4>Un toque especial para tu hogar o empresa</h4>
+        </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://images.unsplash.com/photo-1459158015932-e6c47fc4fbd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60"
+          className="d-block w-100 carousel-image"
+          src="https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2018/09/WOO01_W_M11.jpg.webp"
           alt="Third slide"
         />
+        <Carousel.Caption
+          style={{
+            fontWeight: 'bold',
+            backgroundColor: 'black',
+            opacity: 0.5
+          }}
+        >
+          <h4>Visita nuestro catálogo</h4>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={3000}>
+        <img
+          className="d-block w-100 carousel-image"
+          src="https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2020/12/Mar01_I_M01.jpg.webp"
+          alt="Third slide"
+        />
+        <Carousel.Caption
+          style={{
+            fontWeight: 'bold',
+            backgroundColor: 'black',
+            opacity: 0.5
+          }}
+        >
+          <h4>Tenemos muchas categorías y diseños que te encantarán</h4>
+        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );

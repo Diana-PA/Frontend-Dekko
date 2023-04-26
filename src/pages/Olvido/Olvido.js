@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import Recuperar from '../../pages/Recuperar/Recuperar';
 import Actualizar from '../../pages/Actualizar/Actualizar';
 import {  ThemeProvider } from '@mui/material/styles';
-import theme from '../../pages/Colores/Colores'; 
+
 
 export default function Olvido() {
   const handleSubmit = (event) => {
@@ -43,7 +43,7 @@ export default function Olvido() {
       <Button onClick={handleClickOpen}><LockOutlinedIcon />Olvidaste tu contraseña</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
             <Box

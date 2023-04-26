@@ -16,8 +16,21 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} columns={16}>
+    <Box sx={{ flexGrow: 1 }}
+    style={{
+      backgroundImage: `url('https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2023/02/CBT01_I_I01.jpg.webp')`,
+      backgroundRepeat: 'repeat',
+      backgroundSize: 'contain',
+    }}
+    >
+      <Grid container spacing={2} columns={16}
+          style={{
+            paddingTop: '70px', 
+            paddingBottom: '70px', 
+            paddingLeft: '20px', 
+            paddingRight: '20px' 
+          }}
+      >
         <Grid item xs={10}>
           <Item>
             <Carrusel />

@@ -11,7 +11,6 @@ import Box from '@mui/material/Box';
 import SaveIcon from '@mui/icons-material/Save';
 import Container from '@mui/material/Container';
 import {  ThemeProvider } from '@mui/material/styles';
-import theme from '../../pages/Colores/Colores'; 
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
@@ -25,12 +24,6 @@ export default function Registro() {
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-  
-  };
- 
  
   const [open, setOpen] = React.useState(false);
 
@@ -50,7 +43,7 @@ export default function Registro() {
 
       <Dialog open={open} onClose={handleClose}>
         <DialogContent>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
             <Box
@@ -81,7 +74,6 @@ export default function Registro() {
                                 <IconButton
                                 aria-label="toggle password visibility"
                                 onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
                                 edge="end"
                                 >
                                 {showPassword ? <VisibilityOff /> : <Visibility />}

@@ -9,7 +9,7 @@ import { teal } from '@mui/material/colors';
 import IconButton from '@mui/material/IconButton';
 import logo from '../../images/logo.JPG';
 
-import Carrito from '../../pages/Carrito/Carrito';
+import Carrito from '../../Context/Carrito/Carrito';
 
 
 

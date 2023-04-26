@@ -3,12 +3,11 @@ import { useReducer } from 'react'
 import userReducer from './userReducer'
 import axiosClient from '../../config/axiosClient';
 import { useNavigate } from 'react-router-dom';
-import { useGridRegisterPipeProcessor } from '@mui/x-data-grid/internals';
 
 
 const UserProvider = ({children}) => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const [userState, dispatch] = useReducer(userReducer, {
         infoUser: [],
@@ -17,7 +16,7 @@ const UserProvider = ({children}) => {
 
     const loginUSer = async(user) => {
         try{
-            const userLogin = await axiosClient.post("/user/signin", user)
+            const userLogin = await axiosClient.post("/user/signin", user);
             console.log(userLogin.data)
             console.log(userLogin.data.token)
             console.log(axiosClient.defaults)
@@ -73,13 +72,13 @@ const signOut =() => {
     }
 }
 
-const userEdit = async() => {
+const userEdit = async(data) => {
     const updateUser = await axiosClient.put("/user/myProfile", data)
     console.log(updateUser)
 }
 
   return (
-<UserContext.Provider value={{ loginUSer, registerUser, verifyToken, infoUser: userState.infoUser, authStatus: userState.authStatus, signOut }}>{children}</UserContext.Provider>
+<UserContext.Provider value={{ loginUSer, registerUser, verifyToken, infoUser: userState.infoUser, authStatus: userState.authStatus, userEdit, signOut }}>{children}</UserContext.Provider>
   )
 }
 
