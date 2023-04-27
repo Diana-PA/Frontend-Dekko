@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/joy/Typography';
 import Carrusel from './carrusel';
+import Nosotros from './Nosotros';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,19 +18,19 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Home() {
   return (
     <Box sx={{ flexGrow: 1 }}
-    style={{
-      backgroundImage: `url('https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2023/02/CBT01_I_I01.jpg.webp')`,
-      backgroundRepeat: 'repeat',
-      backgroundSize: 'contain',
-    }}
+      style={{
+        backgroundImage: `url('https://static.innovaweb.cl/wordpress/dekko_tienda_wp/2023/02/CBT01_I_I01.jpg.webp')`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'contain',
+      }}
     >
       <Grid container spacing={2} columns={16}
-          style={{
-            paddingTop: '70px', 
-            paddingBottom: '70px', 
-            paddingLeft: '20px', 
-            paddingRight: '20px' 
-          }}
+        style={{
+          paddingTop: '70px',
+          paddingBottom: '70px',
+          paddingLeft: '20px',
+          paddingRight: '20px'
+        }}
       >
         <Grid item xs={10}>
           <Item>
@@ -39,7 +40,7 @@ export default function Home() {
         <Grid item xs={6}>
           <Item>
             <br />
-            <Typography color="black"  fontSize="12" sx={{ mb: 0.5 }} fontFamily='-apple-system' level="h1">Dekko</Typography>
+            <Typography color="black" fontSize="12" sx={{ mb: 0.5 }} fontFamily='-apple-system' level="h1">Dekko</Typography>
             <br />
             <Typography level="h2" fontSize="xl" sx={{ mb: 0.5 }}>
               Papeles murales hechos a medida
@@ -49,10 +50,10 @@ export default function Home() {
               Tenemos una amplia variedad
             </Typography>
             <Typography level="body1">
-              de estilos y diseños, 
+              de estilos y diseños,
             </Typography>
             <Typography level="body1">
-              pensados en aportar 
+              pensados en aportar
             </Typography>
             <Typography level="body1">
               calidez y estilo a tus espacios.
@@ -78,6 +79,9 @@ export default function Home() {
           </Item>
         </Grid>
       </Grid>
+      <Item>
+        <Nosotros />
+      </Item>
     </Box>
   );
 }

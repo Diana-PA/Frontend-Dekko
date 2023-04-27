@@ -14,7 +14,7 @@ const UserProvider = ({children}) => {
         authStatus: false
     });
 
-    const loginUSer = async(user) => {
+    const loginUser = async(user) => {
         try{
             const userLogin = await axiosClient.post("/user/signin", user);
             console.log(userLogin.data)
@@ -78,7 +78,7 @@ const userEdit = async(data) => {
 }
 
   return (
-<UserContext.Provider value={{ loginUSer, registerUser, verifyToken, infoUser: userState.infoUser, authStatus: userState.authStatus, userEdit, signOut }}>{children}</UserContext.Provider>
+<UserContext.Provider value={{ loginUser, registerUser, verifyToken, infoUser: userState.infoUser, authStatus: userState.authStatus, userEdit, signOut }}>{children}</UserContext.Provider>
   )
 }
 

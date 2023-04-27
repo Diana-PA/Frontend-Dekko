@@ -16,8 +16,8 @@ export default function SignInSide() {
   const {loginUser, registerUser} = useContext(UserContext)
 
 const initialValues = {
-  name:"",
-  email:"",
+  nombre:"",
+  correo:"",
   password:""
 }
 
@@ -92,28 +92,28 @@ console.log(user)
             <TextField
                 margin="normal"
                 required
-                id="name"
+                id="nombre"
                 fullWidth
                 autoFocus
                 onChange={handleChange}
                 type="text"
                 placeholder='Ingresa aquí tu nombre'
-                name="name"
+                name="nombre"
                 label="Nombre"
-                value={user.name}
+                value={user.nombre}
               />
               )}
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
+                id="correo"
                 label="Correo electrónico"
-                name="email"
+                name="correo"
                 autoComplete="email"
                 autoFocus
                 onChange={handleChange}
-                value={user.email}
+                value={user.correo}
               />
               <TextField
                 margin="normal"

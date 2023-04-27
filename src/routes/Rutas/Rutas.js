@@ -4,14 +4,11 @@ import Carrito from '../../Context/Carrito/Carrito';
 import Catalogo from '../../pages/Catalogo/Catalogo';
 import Contacto from '../../pages/Contacto/Contacto';
 import Footer from '../../pages/Footer/Footer';
-import Garantias from '../../pages/Garantias/Garantias';
 import Home from '../../pages/Home/Home';
-import Login1 from '../../pages/Login/Login1';
-import Nosotros from '../../pages/Nosotros/Nosotros';
+import SignInSide from '../../pages/Login/Login1';
 import Olvido from '../../pages/Olvido/Olvido';
 import Pago from '../../pages/Pago/Pago';
 import Perfil from '../../pages/Perfil/Perfil';
-import Prueba from '../../pages/Prueba/Prueba';
 import Registro from '../../pages/Registro/Registro';
 import Separador from '../../pages/Separador/Separador';
 import Bebe from '../../pages/Bebe/Bebe';
@@ -28,6 +25,7 @@ function Rutas() {
    }
           getUser()
     }, [authStatus])
+    console.log(authStatus)
 
 //  async function verifyToken(token = null) {
 //    try {
@@ -52,13 +50,10 @@ function Rutas() {
             <Route path='/checkout' element={<Cart />} /> 
             <Route path='/contacto' element={<Contacto />} />           
             <Route path='/footer' element={<Footer />} /> 
-            <Route path='/garantias' element={<Garantias />} />  
-            <Route path='/login' element={<Login1 />} />  
-            <Route path='/nosotros' element={<Nosotros />} />  
+            <Route path='/login' element={<SignInSide />} />  
             <Route path='/olvido' element={<Olvido />} />  
             <Route path='/pago' element={<Pago />} />   
-            <Route path='/perfil' element={<Perfil />} /> 
-            <Route path='/prueba' element={<Prueba />} />       
+            <Route path='/perfil' element={<Perfil />} />    
             <Route path='/registro' element={<Registro />} /> 
             <Route path='/separador' element={<Separador />} /> 
             <Route path='/carrito' element={<Carrito />} />  
