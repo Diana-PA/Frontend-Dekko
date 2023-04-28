@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import {Avatar, Button, CssBaseline, TextField, Paper, Box, Grid, Typography, createTheme, ThemeProvider} from '@mui/material';
 
 import { useContext, useState } from 'react';
@@ -15,24 +15,24 @@ export default function SignInSide() {
 
   const {loginUser, registerUser} = useContext(UserContext)
 
-const initialValues = {
-  nombre:"",
-  correo:"",
-  password:""
-}
+  const initialValues = {
+    nombre: "",
+    correo: "",
+    password: ""
+  }
 
-console.log(`Este es el estado del singUp: ${initialValues}`)
+  console.log(`Este es el estado del singUp: ${initialValues}`)
 
-const [user, setUser] = useState(initialValues)
+  const [user, setUser] = useState(initialValues)
 
-const handleChange = (e) => {
-  setUser((prevState) => ({
-    ...prevState,
-    [e.target.name]: e.target.value
-  }))
-}
+  const handleChange = (e) => {
+    setUser((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }))
+  }
 
-console.log(user)
+  console.log(user)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,12 +46,12 @@ console.log(user)
 
     navigate("/")
     
-    };
+  };
 
-    const changeMode = () => {
-      setSignUp(!signUp)
-      setUser(initialValues)
-    }
+  const changeMode = () => {
+    setSignUp(!signUp)
+    setUser(initialValues)
+  }
 
   return (
     <ThemeProvider theme={theme}>

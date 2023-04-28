@@ -15,42 +15,34 @@ import Bebe from '../../pages/Bebe/Bebe';
 import { useContext, useEffect } from 'react';
 import UserContext from '../../Context/user/UserContext';
 import Cart from '../../pages/Carro/Cart';
+import ProductDetails from '../../pages/Catalogo/productDetails/ProductDetails';
 
 function Rutas() {
 
   const {verifyToken, authStatus} = useContext(UserContext)
+
+  console.log(authStatus)
+
   useEffect(() => {
     const getUser = async() => {
-          await verifyToken()
-   }
-          getUser()
-    }, [authStatus])
-    console.log(authStatus)
-
-//  async function verifyToken(token = null) {
-//    try {
-//      const response = await fetch('/api/verify-token', {
-//        headers: { Authorization: `Bearer ${token || localStorage.getItem('token')}` }
-//      });
-//      const data = await response.json();
-//      return data;
-//    } catch (error) {
-//      throw new Error('Token inválido');
-//    }
+      await verifyToken()
+    }
+    getUser()
+  }, [authStatus])
 
   return (
-    <div>
+    <>
       <Routes>
         <Route path='/' element={<Layout />}> 
             <Route path='/' element={<Home />} /> 
- 
             <Route path='/bebe' element={<Bebe />} />  
-            <Route path='/catalogo' element={<Catalogo />} />  
+            <Route path='/catalogo' element={<Catalogo />} />
+            <Route path='/product/:id' element={<ProductDetails/>} />   
             <Route path='/carrito' element={<Carrito />} />  
             <Route path='/checkout' element={<Cart />} /> 
             <Route path='/contacto' element={<Contacto />} />           
             <Route path='/footer' element={<Footer />} /> 
-            <Route path='/login' element={<SignInSide />} />  
+            { !authStatus && <Route path='/login' element={<SignInSide />} /> }
             <Route path='/olvido' element={<Olvido />} />  
             <Route path='/pago' element={<Pago />} />   
             <Route path='/perfil' element={<Perfil />} />    
@@ -58,10 +50,9 @@ function Rutas() {
             <Route path='/separador' element={<Separador />} /> 
             <Route path='/carrito' element={<Carrito />} />  
             <Route path='*' element={<Navigate to="/" />} /> 
-
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 

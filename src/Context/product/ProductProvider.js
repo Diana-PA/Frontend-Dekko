@@ -8,7 +8,7 @@ import UserContext from '../user/UserContext'
 
 const ProductProvider = ({children}) => {
 
-    const {infoUser} = useContext(UserContext)
+    // const {infoUser} = useContext(UserContext)
 
     const initialState = {
         products: [],
@@ -47,9 +47,9 @@ const ProductProvider = ({children}) => {
         }
     }
 
-    const getProduct = async() => {
+    const getProduct = async(id) => {
         try {
-            const product = await axiosClient.get('/product/:id')
+            const product = await axiosClient.get(`/product/${id}`)
             const productInfo = product.data.info;
     
             dispatch(
