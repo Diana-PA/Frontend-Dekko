@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import CartContext from '../../Context/Carrito/CartContext';
 import "./Checkout-item.scss"
+
 const CheckoutItem = ({cartItem, stock}) => {
 
    const {addItemToCart, removeItemToCart, clearItemToCart, cartCount} = useContext(CartContext)
@@ -13,14 +14,14 @@ const CheckoutItem = ({cartItem, stock}) => {
    const addHandler = () => { if( quantity < stock )addItemToCart(cartItem)}
    const removeHandler = () => removeItemToCart(cartItem)
 
-   const {name, price, image, quantity} = cartItem
+   const {nombre, precio, urlfoto, quantity} = cartItem
 
   return (
     <div className="checkout-item-container">
       <div className="image-container">
-        <img src={image} alt={`${name}`} />
+        <img src={urlfoto} alt={`${nombre}`} />
       </div>
-      <span className="name">{name}</span>
+      <span className="name">{nombre}</span>
       <span className="quantity">
         <div className="arrow" onClick={removeHandler}>
           &#10094;
@@ -30,7 +31,7 @@ const CheckoutItem = ({cartItem, stock}) => {
           &#10095;
         </div>
       </span>
-      <span className="price">{price}</span>
+      <span className="price">{precio}</span>
       <div className="remove-button" onClick={clearHandler}>
         &#10005;
       </div>

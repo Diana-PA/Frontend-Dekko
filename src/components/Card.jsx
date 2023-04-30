@@ -5,20 +5,24 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import './cards.scss'
 
-export default function CardProduct({title, imageURL, text, id}) {
+export default function CardProduct({imageURL, text, id}) {
     const navigate = useNavigate()
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card 
+    // sx={{ maxWidth: 345 }}
+    className='card-catalogo'
+    >
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ 
+          height: 300,
+          width: 370
+        }}
         image={imageURL}
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
         <Typography variant="body2" color="text.secondary">
             {text}
         </Typography>

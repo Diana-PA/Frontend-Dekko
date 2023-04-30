@@ -1,6 +1,8 @@
 import { useContext, useEffect } from "react";
 import CardProduct from "../../components/Card";
 import ProductContext from "../../Context/product/ProductContext";
+import catalogo from '../../images/catalogo.png';
+import "./catalogo.scss"
 
 export default function Catalogo() {
 
@@ -16,11 +18,9 @@ export default function Catalogo() {
   }, []);
 
   return (
-    // <Album />
     <div>
-      <div className="bg-secondary" id="menu">
-        <br />
-        <h1 className="text-center fw-bold fst-italic">Menú</h1>
+      <div className="catalogo1" id="menu">
+        <p className="mt-2"><img src={catalogo} width="100%" height="100%" className="d-inline-block" alt="catalogo"/></p>
         <br />
         <div className="p-2 container d-flex justify-content-center align-items-center h-100">
           <div className="row">

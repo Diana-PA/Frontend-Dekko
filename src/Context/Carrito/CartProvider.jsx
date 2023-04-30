@@ -1,7 +1,7 @@
 import CartContext from './CartContext';
 import { useReducer } from 'react';
-import cartReducer from './cartReducers';
-import { addCartItem, removeCartItem, clearCartItem } from "./cartFunctions"
+import cartReducer from './cartReducer';
+import { addCartItem, removeCartItem, clearCartItem } from "./cartFunction"
 
 const CartProvider = ({children}) => {
 
@@ -19,7 +19,7 @@ const [{isCartOpen, cartItems, cartCount, cartTotal}, dispatch] = useReducer(car
 const updateCartItemReducer = (newCartItems) => {
     // reduce es un metodo de array que sirve para acumular valores
     const newCartCount = newCartItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
-    const newCartTotal = newCartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0);
+    const newCartTotal = newCartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.precio, 0);
 
 
     dispatch({
@@ -34,17 +34,17 @@ const updateCartItemReducer = (newCartItems) => {
 
 const addItemToCart = (productToAdd) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
-    updateCartItemsReducer(newCartItems)
+    updateCartItemReducer(newCartItems)
 }
 
 const removeItemToCart = (cartItemToRemove) => {
     const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-    updateCartItemsReducer(newCartItems)
+    updateCartItemReducer(newCartItems)
 }
 
-const clearItemFromCart = (cartItemToClear) => {
+const clearItemToCart = (cartItemToClear) => {
     const newCartItems = clearCartItem(cartItems, cartItemToClear);
-    updateCartItemsReducer(newCartItems)
+    updateCartItemReducer(newCartItems)
 }
 
 const clearItemFromCheckout = () => {
@@ -59,7 +59,7 @@ const setIsCartOpen = (bool) => {
 
 
   return (
-    <CartContext.Provider value={{addItemToCart, removeItemToCart, clearItemFromCart, clearItemFromCheckout, isCartOpen, cartItems, cartCount, cartTotal, setIsCartOpen}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{addItemToCart, removeItemToCart, clearItemToCart, clearItemFromCheckout, isCartOpen, cartItems, cartCount, cartTotal, setIsCartOpen}}>{children}</CartContext.Provider>
   )
 }
 

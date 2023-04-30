@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/joy/Typography';
 import Carrusel from './carrusel';
 import Nosotros from './Nosotros';
+import './nosotros.scss'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -79,6 +80,17 @@ export default function Home() {
           </Item>
         </Grid>
       </Grid>
+      <Item>
+      <div className="text-secondary pb-2 ps-5   text-center">
+          <br />
+          <br />
+        <h2 className="fw-bold"
+        style={{color: '#0097a7', padding: 3}}> 
+        Te invitamos a revisar nuestro <a href="/catalogo" className='cat1'>catálogo</a>, donde encontrarás una amplia variedad de diseños para tus espacios</h2>
+          <br />
+          <br />
+      </div>
+      </Item>
       <Item>
         <Nosotros />
       </Item>

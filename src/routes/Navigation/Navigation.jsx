@@ -1,4 +1,4 @@
-import { Nav, Navbar, Button, Form, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, Button, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../Context/user/UserContext";
@@ -7,12 +7,8 @@ import { teal } from "@mui/material/colors";
 import IconButton from "@mui/material/IconButton";
 import logo from "../../images/logo.JPG";
 
-import Carrito from "../../Context/Carrito/Carrito";
-
 const Navigation = () => {
   const { signOut, authStatus } = useContext(UserContext);
-
-  //const { name, email } = infoUser
 
   return (
     <div className="ps-5">
@@ -26,92 +22,23 @@ const Navigation = () => {
             alt="Logo"
           />
         </Navbar.Brand>
-
-        <NavDropdown title="Catálogo">
-          <NavDropdown.Item as={NavLink} to="/catalogo" >
-            Catalogo
-          </NavDropdown.Item>
-          <NavDropdown.Item as={NavLink} to="/bebe" >
-            Bebé
-          </NavDropdown.Item>
-          <NavDropdown.Item as={NavLink} to="/perfil">
-            Perfil
-          </NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item as={NavLink} to="/migas">
-            Migas
-          </NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item as={NavLink} to="/construccion">
-            Construccion
-          </NavDropdown.Item>
-          <NavDropdown.Item as={NavLink} to="/prueba">
-            Prueba
-          </NavDropdown.Item>
-        </NavDropdown>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Buscar"
-                className="me-1"
-                aria-label="Buscar"
-              />
-              <IconButton
-                aria-label="close"
-                color="inherit"
-                size="large"
-                sx={{ color: teal[50] }}
-              >
-                <SearchIcon fontSize="inherit" />
-              </IconButton>
-            </Form>
-
-            <Nav.Link>
-              <>
-                <Carrito />
-              </>
-            </Nav.Link>
-
-            <NavDropdown title="Desarrollo">
-              <NavDropdown.Item as={NavLink} to="/Checkout">
-                Checkout
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/Pago">
-                Pago
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/perfil">
-                Perfil
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to="/migas">
-                Migas
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to="/construccion">
-                Construccion
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/prueba">
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            {authStatus ? (
-              <Button onClick={signOut} className="me-3">
-                Logout
-              </Button>
-            ) : (
-              <Nav.Link>
-                <NavDropdown.Item as={NavLink} to="/login">
-                  Login
-                </NavDropdown.Item>
-              </Nav.Link>
-            )}
-          </Nav>
-        </Navbar.Collapse>
+        <Nav.Item className="ms-auto me-2">
+          <Nav.Link title="Catálogo" as={NavLink} to="/catalogo">Catalogo</Nav.Link>
+        </Nav.Item>
+        <Nav.Item className="me-2 ms-2">
+          <Nav.Link title="Carro de Compras" as={NavLink} to="/carrito">Carro</Nav.Link>
+        </Nav.Item>
+        {authStatus ? (
+          <Button onClick={signOut} className="ms-2 me-3">
+            Logout
+          </Button>
+        ) : (
+          <Nav.Link>
+            <NavDropdown.Item as={NavLink} to="/login">
+              Login
+            </NavDropdown.Item>
+          </Nav.Link>
+        )}
       </Navbar>
     </div>
   );

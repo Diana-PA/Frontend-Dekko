@@ -10,13 +10,11 @@ export const addCartItem = (cartItems, productToAdd) => {
     if(existingCartItem){
         return cartItems.map((cartItem) => 
             cartItem._id === productToAdd._id ? {...cartItem, quantity: cartItem.quantity + 1 }
-            cartItem._id === productToAdd._id ? { ...cartItem, quantity: cartItem.quantity + 1 }
                 : cartItem
             )
     }
     // retorna un nuveo array con cartItems modificados
     return [...cartItems, {...productToAdd, quantity: 1}]
-    return [...cartItems, { ...productToAdd, quantity: 1 }]
 }
 
 export const removeCartItem = (cartItems, cartItemToRemove) => {

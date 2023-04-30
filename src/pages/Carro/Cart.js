@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import CartContext from '../../Context/Carrito/CartContext';
-import CheckoutItem from '../../components/checkoutItem/Checkout-item';
+import CheckoutItem from "../../components/checkoutItem/Checkout-item"
 import Paypal from '../../components/Layout/Paypal';
 import './Cart.scss';
 
@@ -11,7 +11,6 @@ const Cart = () => {
   console.log(cartItems)
 
   return (
-    <div> Cart 
     <div className="checkout-container">
              <div className="checkout-header">
                 <div className="header-block">
@@ -31,12 +30,11 @@ const Cart = () => {
                  </div>
             </div>
             {cartItems.map((cartItem) => (
-                <CheckoutItem key={cartItem._id} cartItem={cartItem}/>
+                <CheckoutItem key={cartItem._id} cartItem={cartItem} stock={cartItem.stock}/>
             ))}
              <span className="total">Total: ${cartTotal}</span>
 
           { cartItems.length ? <Paypal/> : null }
-    </div>
     </div>
   )
 }
