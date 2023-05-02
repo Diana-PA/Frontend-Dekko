@@ -28,10 +28,10 @@ const productReducer = (state, action) => {
             return{
                 ...state,
                 product: [payload]
-            }
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
 export default productReducer;

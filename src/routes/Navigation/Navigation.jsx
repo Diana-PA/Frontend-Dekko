@@ -2,9 +2,6 @@ import { Nav, Navbar, Button, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../Context/user/UserContext";
-import SearchIcon from "@mui/icons-material/Search";
-import { teal } from "@mui/material/colors";
-import IconButton from "@mui/material/IconButton";
 import logo from "../../images/logo.JPG";
 
 const Navigation = () => {

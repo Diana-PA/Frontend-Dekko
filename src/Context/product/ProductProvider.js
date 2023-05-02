@@ -1,14 +1,11 @@
-// import React, { useState } from 'react'
 import axiosClient from '../../config/axiosClient'
 import ProductContext from './ProductContext'
-import { useReducer, useContext } from 'react'
+import {useReducer} from 'react'
 import productReducer from './ProductReducer'
-import UserContext from '../user/UserContext'
 
 
 const ProductProvider = ({children}) => {
 
-    // const {infoUser} = useContext(UserContext)
 
     const initialState = {
         products: [],

@@ -12,7 +12,7 @@ import './details.scss'
 const ProductDetails = () => {
     const { id } = useParams()
     const navigate = useNavigate()
-    const {getProduct, product} = useContext(ProductContext)
+    const { getProduct, product } = useContext(ProductContext)
     const {addItemToCart, cartCount} = useContext(CartContext)
 
     const handleButton = () => {
@@ -22,11 +22,12 @@ const ProductDetails = () => {
 
     useEffect(() => {
         const productNow = async() => {
-            await getProduct(id)
-        }
+          const data =  await getProduct(id);
+          getProduct(data);
+        };
 
-        productNow()
-    }, [])
+        productNow();
+    }, [getProduct, id]);
 
     const { sku, clase, categoria, descripcion, urlfoto, urlambientacion,
     ancho, alto, peso, precio} = product[0]
