@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 const axiosClient = axios.create({
-    baseURL: "http://localhost:4000"
-    //pegar aqui la url de postman
+    baseURL: "https://dekko-backend.onrender.com"
 })
 
 export default axiosClient;
